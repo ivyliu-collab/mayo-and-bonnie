@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ArrowDownToLine, ArrowUpFromLine } from 'lucide-react'
 import { thisMonth } from '@/lib/mock-data'
 
@@ -19,8 +20,8 @@ export function ThisMonthCard() {
               {item.section}
             </span>
             <div className="flex items-center gap-4">
-              <button
-                type="button"
+              <Link
+                href="/history?tab=入库"
                 className="flex items-center gap-1.5 text-left transition-opacity hover:opacity-70"
               >
                 <ArrowDownToLine className="size-4 text-sage-foreground" strokeWidth={1.75} />
@@ -28,10 +29,10 @@ export function ThisMonthCard() {
                   {item.stockIn}
                 </span>
                 <span className="text-xs text-muted-foreground">入库</span>
-              </button>
+              </Link>
               <span className="h-4 w-px bg-border" />
-              <button
-                type="button"
+              <Link
+                href="/history?tab=消耗"
                 className="flex items-center gap-1.5 text-left transition-opacity hover:opacity-70"
               >
                 <ArrowUpFromLine className="size-4 text-slate-blue-foreground" strokeWidth={1.75} />
@@ -39,7 +40,7 @@ export function ThisMonthCard() {
                   {item.consume}
                 </span>
                 <span className="text-xs text-muted-foreground">消耗</span>
-              </button>
+              </Link>
             </div>
           </div>
         ))}
