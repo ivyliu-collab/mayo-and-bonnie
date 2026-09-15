@@ -36,8 +36,9 @@ export function BottomNav() {
           </button>
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <button
-            type="button"
+          <Link
+            href="/stock-in?mode=scan"
+            onClick={() => setSheetOpen(false)}
             className="flex flex-col items-start gap-2 rounded-2xl bg-background/70 p-4 text-left ring-1 ring-border transition-colors hover:bg-accent/60"
           >
             <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
@@ -45,9 +46,10 @@ export function BottomNav() {
             </span>
             <span className="text-sm font-medium text-foreground">扫码入库</span>
             <span className="text-xs text-muted-foreground">识别商品条码</span>
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
+            href="/stock-in?mode=manual"
+            onClick={() => setSheetOpen(false)}
             className="flex flex-col items-start gap-2 rounded-2xl bg-background/70 p-4 text-left ring-1 ring-border transition-colors hover:bg-accent/60"
           >
             <span className="flex size-10 items-center justify-center rounded-xl bg-secondary text-foreground">
@@ -55,7 +57,7 @@ export function BottomNav() {
             </span>
             <span className="text-sm font-medium text-foreground">手动入库</span>
             <span className="text-xs text-muted-foreground">填写商品信息</span>
-          </button>
+          </Link>
         </div>
       </div>
 
