@@ -15,13 +15,13 @@ export function TopBar() {
         </div>
 
         <nav className="flex items-center gap-1">
-          <button
-            type="button"
+          <Link
+            href="/"
             className="flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm font-medium text-foreground"
           >
             <Home className="size-4" strokeWidth={1.75} />
             Home
-          </button>
+          </Link>
           <Link
             href="/inventory"
             className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/60"
@@ -32,13 +32,13 @@ export function TopBar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            type="button"
+          <Link
+            href="/stock-in"
             className="flex items-center gap-2 rounded-full bg-apricot/25 px-3.5 py-1.5 text-sm font-medium text-apricot-foreground transition-colors hover:bg-apricot/35 active:scale-95"
           >
             <Plus className="size-4" strokeWidth={2} />
             入库
-          </button>
+          </Link>
           <button
             type="button"
             aria-label="设置"
