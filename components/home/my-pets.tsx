@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Scale, Bath, Scissors, Pill, Bug } from 'lucide-react'
 import {
   pets,
@@ -28,8 +29,8 @@ function PetCard({ pet }: { pet: Pet }) {
   const identity = identityStyles[pet.color]
 
   return (
-    <button
-      type="button"
+    <Link
+      href={`/pets/${pet.id}`}
       className={`group w-[264px] shrink-0 snap-start overflow-hidden rounded-[24px] border-b-2 ${identity.edge} bg-card text-left shadow-[0_18px_38px_-26px_rgba(80,60,40,0.42)] ring-1 ring-foreground/[0.035] transition-transform hover:-translate-y-1`}
     >
       <div className="relative">
@@ -98,7 +99,7 @@ function PetCard({ pet }: { pet: Pet }) {
           </div>
         ) : null}
       </div>
-    </button>
+    </Link>
   )
 }
 
