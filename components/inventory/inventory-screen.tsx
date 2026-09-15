@@ -49,7 +49,7 @@ export function InventoryScreen() {
             <p className="mt-1 text-sm text-muted-foreground">家里的每一份照料，都有迹可循</p>
           </div>
           <div className="flex items-center gap-2">
-            <button type="button" className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary sm:flex"><History className="size-4" />历史记录</button>
+            <Link href="/history" className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary sm:flex"><History className="size-4" />历史记录</Link>
             <button type="button" className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary sm:flex"><Download className="size-4" />导出</button>
             <button type="button" aria-label="更多操作" className="flex size-9 items-center justify-center rounded-full text-muted-foreground hover:bg-secondary sm:hidden"><MoreHorizontal className="size-5" /></button>
           </div>

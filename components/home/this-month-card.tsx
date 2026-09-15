@@ -21,7 +21,7 @@ export function ThisMonthCard() {
             </span>
             <div className="flex items-center gap-4">
               <Link
-                href="/history?tab=入库"
+                href={`/history?tab=入库&section=${encodeURIComponent(item.section)}`}
                 className="flex items-center gap-1.5 text-left transition-opacity hover:opacity-70"
               >
                 <ArrowDownToLine className="size-4 text-sage-foreground" strokeWidth={1.75} />
@@ -32,7 +32,7 @@ export function ThisMonthCard() {
               </Link>
               <span className="h-4 w-px bg-border" />
               <Link
-                href="/history?tab=消耗"
+                href={`/history?tab=消耗&section=${encodeURIComponent(item.section)}`}
                 className="flex items-center gap-1.5 text-left transition-opacity hover:opacity-70"
               >
                 <ArrowUpFromLine className="size-4 text-slate-blue-foreground" strokeWidth={1.75} />
