@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Home, Boxes, Plus, Settings, PawPrint } from 'lucide-react'
 
 export function TopBar() {
@@ -21,13 +22,13 @@ export function TopBar() {
             <Home className="size-4" strokeWidth={1.75} />
             Home
           </button>
-          <button
-            type="button"
+          <Link
+            href="/inventory"
             className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/60"
           >
             <Boxes className="size-4" strokeWidth={1.75} />
             Inventory
-          </button>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-2">

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { Home, Boxes, Plus, ScanLine, PencilLine, X } from 'lucide-react'
 
@@ -77,12 +78,13 @@ export function BottomNav() {
             <Plus className="size-6" strokeWidth={2} />
           </button>
 
-          <NavItem
-            icon={<Boxes className="size-5.5" strokeWidth={1.75} />}
-            label="Inventory"
-            active={active === 'inventory'}
-            onClick={() => setActive('inventory')}
-          />
+          <Link
+            href="/inventory"
+            className={`flex w-16 flex-col items-center gap-1 py-1 transition-colors ${active === 'inventory' ? 'text-primary' : 'text-muted-foreground'}`}
+          >
+            <Boxes className="size-5.5" strokeWidth={1.75} />
+            <span className="text-[11px] font-medium">Inventory</span>
+          </Link>
         </div>
       </nav>
     </>
