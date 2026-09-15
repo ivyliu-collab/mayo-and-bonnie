@@ -6,7 +6,7 @@ import { ExpiryCard } from '@/components/home/expiry-card'
 import { MyPets } from '@/components/home/my-pets'
 import { BottomNav } from '@/components/home/bottom-nav'
 
-export default function HomePage() {
+export function HomePage() {
   return (
     <div className="min-h-dvh bg-background">
       <TopBar />
@@ -44,3 +44,5 @@ export default function HomePage() {
     </div>
   )
 }
+
+export default HomePage

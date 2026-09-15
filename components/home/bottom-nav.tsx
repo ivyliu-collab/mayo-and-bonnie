@@ -62,12 +62,13 @@ export function BottomNav() {
       {/* Bottom navigation bar */}
       <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-border/70 bg-card/90 backdrop-blur-md md:hidden">
         <div className="mx-auto flex max-w-md items-center justify-around px-6 pb-[calc(env(safe-area-inset-bottom)+8px)] pt-2.5">
-          <NavItem
-            icon={<Home className="size-5.5" strokeWidth={1.75} />}
-            label="Home"
-            active={active === 'home'}
-            onClick={() => setActive('home')}
-          />
+          <Link
+            href="/"
+            className={`flex w-16 flex-col items-center gap-1 py-1 transition-colors ${active === 'home' ? 'text-primary' : 'text-muted-foreground'}`}
+          >
+            <Home className="size-5.5" strokeWidth={1.75} />
+            <span className="text-[11px] font-medium">Home</span>
+          </Link>
 
           <button
             type="button"
