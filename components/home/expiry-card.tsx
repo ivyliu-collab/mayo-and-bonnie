@@ -34,7 +34,10 @@ export function ExpiryCard() {
   return (
     <section className="rounded-[22px] bg-card p-5 shadow-[0_12px_30px_-22px_rgba(80,60,40,0.45)]">
       <header className="mb-4 flex items-baseline justify-between">
-        <h2 className="text-base font-medium text-foreground">效期汇总</h2>
+        <div>
+          <h2 className="text-base font-medium text-foreground">效期汇总</h2>
+          <p className="mt-1 text-xs text-muted-foreground">优先处理需要关注的库存</p>
+        </div>
         <span className="text-xs text-muted-foreground">Expiry</span>
       </header>
 
@@ -46,8 +49,8 @@ export function ExpiryCard() {
             <button
               key={item.key}
               type="button"
-              className={`flex flex-col gap-1.5 rounded-2xl px-4 py-3.5 text-left transition-transform hover:-translate-y-0.5 ${
-                emphasize ? `${s.bg} ring-1 ${s.ring}` : 'bg-background/60'
+              className={`flex flex-col gap-1.5 rounded-[18px] px-4 py-3.5 text-left transition-transform hover:-translate-y-0.5 ${
+                emphasize ? `${s.bg} ring-1 ${s.ring}` : 'bg-background/35 opacity-60'
               }`}
             >
               <span className="flex items-center gap-1.5">

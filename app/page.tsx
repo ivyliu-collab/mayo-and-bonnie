@@ -11,11 +11,11 @@ export default function HomePage() {
     <div className="min-h-dvh bg-background">
       <TopBar />
 
-      <main className="mx-auto max-w-6xl px-4 pb-28 pt-4 md:px-8 md:pb-12 md:pt-6">
+      <main className="mx-auto max-w-6xl px-4 pb-28 pt-5 md:px-8 md:pb-12 md:pt-8">
         <Hero />
 
         {/* Inventory Dashboard — primary content */}
-        <div className="mt-5 md:mt-6">
+        <div className="mt-6 md:mt-8">
           <div className="mb-3 flex items-baseline gap-2 px-1">
             <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
               Inventory
@@ -23,11 +23,11 @@ export default function HomePage() {
             <span className="text-xs text-muted-foreground">库存概览</span>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             <div className="md:col-span-2">
               <StockLevelCard />
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               <ThisMonthCard />
               <ExpiryCard />
             </div>

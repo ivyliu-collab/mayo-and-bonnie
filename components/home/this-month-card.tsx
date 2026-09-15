@@ -13,7 +13,7 @@ export function ThisMonthCard() {
         {thisMonth.map((item) => (
           <div
             key={item.section}
-            className="flex items-center justify-between rounded-2xl bg-background/60 px-4 py-3"
+            className="flex items-center justify-between rounded-[18px] bg-background/55 px-4 py-3.5"
           >
             <span className="text-sm font-medium text-foreground">
               {item.section}
@@ -24,7 +24,7 @@ export function ThisMonthCard() {
                 className="flex items-center gap-1.5 text-left transition-opacity hover:opacity-70"
               >
                 <ArrowDownToLine className="size-4 text-sage-foreground" strokeWidth={1.75} />
-                <span className="font-mono text-base font-medium tabular-nums text-foreground">
+                <span className="font-mono text-2xl font-semibold leading-none tabular-nums text-foreground">
                   {item.stockIn}
                 </span>
                 <span className="text-xs text-muted-foreground">入库</span>
@@ -35,7 +35,7 @@ export function ThisMonthCard() {
                 className="flex items-center gap-1.5 text-left transition-opacity hover:opacity-70"
               >
                 <ArrowUpFromLine className="size-4 text-slate-blue-foreground" strokeWidth={1.75} />
-                <span className="font-mono text-base font-medium tabular-nums text-foreground">
+                <span className="font-mono text-2xl font-semibold leading-none tabular-nums text-foreground">
                   {item.consume}
                 </span>
                 <span className="text-xs text-muted-foreground">消耗</span>

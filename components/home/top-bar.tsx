@@ -5,7 +5,7 @@ import { Home, Boxes, Plus, Settings, PawPrint } from 'lucide-react'
 export function TopBar() {
   return (
     <header className="sticky top-0 z-30 hidden border-b border-border/70 bg-background/80 backdrop-blur-md md:block">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-8 py-3.5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-8 py-2.5">
         <div className="flex items-center gap-2">
           <span className="flex size-8 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <PawPrint className="size-4.5" strokeWidth={2} />
@@ -33,7 +33,7 @@ export function TopBar() {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform active:scale-95"
+            className="flex items-center gap-2 rounded-full bg-apricot/25 px-3.5 py-1.5 text-sm font-medium text-apricot-foreground transition-colors hover:bg-apricot/35 active:scale-95"
           >
             <Plus className="size-4" strokeWidth={2} />
             入库

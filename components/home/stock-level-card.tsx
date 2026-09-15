@@ -1,26 +1,49 @@
-import { ChevronRight, Boxes } from 'lucide-react'
+import {
+  ChevronRight,
+  Boxes,
+  Bone,
+  CupSoda,
+  Cookie,
+  Package,
+} from 'lucide-react'
 import { stockSections, type StockCategory } from '@/lib/mock-data'
 
+const categoryIcons = {
+  猫粮: Bone,
+  狗粮: Bone,
+  罐头: CupSoda,
+  零食: Cookie,
+  '餐包餐盒': Package,
+  其他: Package,
+}
+
 function CategoryRow({ category }: { category: StockCategory }) {
+  const Icon = categoryIcons[category.name as keyof typeof categoryIcons] ?? Package
+
   return (
     <button
       type="button"
-      className="group flex w-full items-center justify-between gap-3 rounded-2xl bg-background/60 px-3.5 py-3 text-left transition-colors hover:bg-accent/60"
+      className="group flex w-full items-center justify-between gap-3 rounded-[18px] bg-background/55 px-3 py-2.5 text-left transition-colors hover:bg-sage/10"
     >
-      <span className="text-sm font-medium text-foreground">
-        {category.name}
+      <span className="flex min-w-0 items-center gap-2.5">
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-sage/15 text-sage-foreground">
+          <Icon className="size-4" strokeWidth={1.7} />
+        </span>
+        <span className="truncate text-sm font-medium text-foreground">
+          {category.name}
+        </span>
       </span>
       <span className="flex items-center gap-1.5">
-        <span className="font-mono text-base font-medium tabular-nums text-foreground">
+        <span className="font-mono text-xl font-semibold tabular-nums leading-none text-foreground">
           {category.quantity}
         </span>
         <span className="text-xs text-muted-foreground">{category.unit}</span>
         {category.opened ? (
-          <span className="ml-1 rounded-full bg-apricot-soft px-2 py-0.5 text-[11px] font-medium text-apricot-foreground">
+          <span className="ml-1 rounded-full bg-apricot/20 px-2 py-0.5 text-[11px] font-medium text-apricot-foreground">
             {category.opened} 已开
           </span>
         ) : null}
-        <ChevronRight className="size-4 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5" />
+        <ChevronRight className="size-4 text-muted-foreground/45 transition-transform group-hover:translate-x-0.5" />
       </span>
     </button>
   )
@@ -28,7 +51,7 @@ function CategoryRow({ category }: { category: StockCategory }) {
 
 export function StockLevelCard() {
   return (
-    <section className="rounded-[24px] bg-card p-5 shadow-[0_12px_30px_-22px_rgba(80,60,40,0.45)] sm:p-6">
+    <section className="rounded-[24px] bg-card p-5 shadow-[0_16px_34px_-24px_rgba(80,60,40,0.38)] sm:p-6">
       <header className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <span className="flex size-9 items-center justify-center rounded-xl bg-secondary text-foreground">

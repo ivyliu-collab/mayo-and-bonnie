@@ -28,16 +28,16 @@ function PetCard({ pet }: { pet: Pet }) {
   return (
     <button
       type="button"
-      className="group w-[264px] shrink-0 snap-start overflow-hidden rounded-[22px] bg-card text-left shadow-[0_12px_30px_-22px_rgba(80,60,40,0.45)] transition-transform hover:-translate-y-1"
+      className="group w-[264px] shrink-0 snap-start overflow-hidden rounded-[24px] bg-card text-left shadow-[0_18px_38px_-26px_rgba(80,60,40,0.42)] ring-1 ring-foreground/[0.035] transition-transform hover:-translate-y-1"
     >
       <div className="relative">
         <img
           src={pet.photo || '/placeholder.svg'}
           alt={`${pet.name}的照片`}
-          className="h-40 w-full object-cover"
+          className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
         />
         <span
-          className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${identity.chip}`}
+          className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-card/80 px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${identity.chip}`}
         >
           <span className={`size-2 rounded-full ${identity.dot}`} />
           {pet.type}
