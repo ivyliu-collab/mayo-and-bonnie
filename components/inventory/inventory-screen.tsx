@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { ArrowDownUp, Boxes, Check, ChevronRight, Clock3, Download, Filter, History, Home, MoreHorizontal, PackagePlus, Search } from 'lucide-react'
 import { inventoryProducts, type InventoryProduct, type InventorySection } from '@/lib/inventory-data'
 
@@ -93,9 +94,10 @@ export function InventoryScreen() {
 }
 
 function ProductCard({ product }: { product: InventoryProduct }) {
+  const router = useRouter()
   const expiryTone = product.expiryComposition?.urgent ? 'text-expired' : product.expiryComposition?.attention ? 'text-attention' : 'text-muted-foreground'
   const actionLabel = product.progress ? (product.progress < 40 ? '用完' : '开袋') : '−1'
-  return <article className="group flex gap-4 rounded-3xl bg-card p-3.5 ring-1 ring-border/60 transition-transform hover:-translate-y-0.5 md:items-center md:p-4">
+  return <article role="link" tabIndex={0} onClick={() => router.push(`/inventory/product/${product.id}`)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); router.push(`/inventory/product/${product.id}`) } }} className="group flex cursor-pointer gap-4 rounded-3xl bg-card p-3.5 ring-1 ring-border/60 transition-transform hover:-translate-y-0.5 md:items-center md:p-4">
     <div className={`flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl ${accents[product.accent]} sm:size-28 md:size-36`}><img src={product.image} alt={`${product.name} 包装`} className="size-full object-cover mix-blend-multiply" /></div>
     <div className="min-w-0 flex-1 py-0.5">
       <div className="flex items-start justify-between gap-2"><div><p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{product.section} · {product.category}</p><h3 className="mt-1 text-sm font-medium text-foreground md:text-base">{product.name}</h3></div><button type="button" aria-label={`${product.name} 更多操作`} className="text-muted-foreground/60 hover:text-foreground"><MoreHorizontal className="size-4" /></button></div>
