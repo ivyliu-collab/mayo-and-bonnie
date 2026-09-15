@@ -6,13 +6,15 @@ import {
   type IdentityColor,
 } from '@/lib/mock-data'
 
-const identityStyles: Record<IdentityColor, { chip: string; dot: string }> = {
-  lavender: { chip: 'bg-lavender/20 text-lavender-foreground', dot: 'bg-lavender' },
-  sage: { chip: 'bg-sage/20 text-sage-foreground', dot: 'bg-sage' },
-  apricot: { chip: 'bg-apricot/25 text-apricot-foreground', dot: 'bg-apricot' },
+const identityStyles: Record<IdentityColor, { chip: string; dot: string; wash: string; edge: string }> = {
+  lavender: { chip: 'bg-lavender/20 text-lavender-foreground', dot: 'bg-lavender', wash: 'bg-lavender/10', edge: 'border-lavender/35' },
+  sage: { chip: 'bg-sage/20 text-sage-foreground', dot: 'bg-sage', wash: 'bg-sage/10', edge: 'border-sage/35' },
+  apricot: { chip: 'bg-apricot/25 text-apricot-foreground', dot: 'bg-apricot', wash: 'bg-apricot/10', edge: 'border-apricot/35' },
   'slate-blue': {
     chip: 'bg-slate-blue/20 text-slate-blue-foreground',
     dot: 'bg-slate-blue',
+    wash: 'bg-slate-blue/10',
+    edge: 'border-slate-blue/35',
   },
 }
 
@@ -28,7 +30,7 @@ function PetCard({ pet }: { pet: Pet }) {
   return (
     <button
       type="button"
-      className="group w-[264px] shrink-0 snap-start overflow-hidden rounded-[24px] bg-card text-left shadow-[0_18px_38px_-26px_rgba(80,60,40,0.42)] ring-1 ring-foreground/[0.035] transition-transform hover:-translate-y-1"
+      className={`group w-[264px] shrink-0 snap-start overflow-hidden rounded-[24px] border-b-2 ${identity.edge} bg-card text-left shadow-[0_18px_38px_-26px_rgba(80,60,40,0.42)] ring-1 ring-foreground/[0.035] transition-transform hover:-translate-y-1`}
     >
       <div className="relative">
         <img
@@ -51,7 +53,7 @@ function PetCard({ pet }: { pet: Pet }) {
         </div>
         <p className="mt-0.5 text-xs text-muted-foreground">{pet.breed}</p>
 
-        <div className="mt-3 flex items-center gap-2 rounded-2xl bg-background/60 px-3 py-2.5">
+        <div className={`mt-3 flex items-center gap-2 rounded-2xl px-3 py-2.5 ${identity.wash}`}>
           <Scale className="size-4 text-muted-foreground" strokeWidth={1.75} />
           <span className="font-mono text-sm font-medium tabular-nums text-foreground">
             {pet.weight.value}

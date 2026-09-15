@@ -1,5 +1,9 @@
 import { expiry, type ExpiryStatus } from '@/lib/mock-data'
 
+const attentionCount = expiry
+  .filter((item) => item.key !== 'safe')
+  .reduce((total, item) => total + item.count, 0)
+
 const styles: Record<
   ExpiryStatus['key'],
   { dot: string; bg: string; text: string; ring: string }
@@ -33,10 +37,13 @@ const styles: Record<
 export function ExpiryCard() {
   return (
     <section className="rounded-[22px] bg-card p-5 shadow-[0_12px_30px_-22px_rgba(80,60,40,0.45)]">
-      <header className="mb-4 flex items-baseline justify-between">
+      <header className="mb-4 flex items-end justify-between">
         <div>
           <h2 className="text-base font-medium text-foreground">效期汇总</h2>
-          <p className="mt-1 text-xs text-muted-foreground">优先处理需要关注的库存</p>
+          <p className="mt-2 flex items-baseline gap-1.5 text-xs text-muted-foreground">
+            <span className="font-mono text-2xl font-semibold leading-none text-expired">{attentionCount}</span>
+            <span>items need attention</span>
+          </p>
         </div>
         <span className="text-xs text-muted-foreground">Expiry</span>
       </header>
@@ -55,7 +62,7 @@ export function ExpiryCard() {
             >
               <span className="flex items-center gap-1.5">
                 <span className={`size-2 rounded-full ${s.dot}`} />
-                <span className="text-xs font-medium text-foreground">
+                <span className={`text-xs font-medium ${item.key === 'safe' ? 'text-muted-foreground' : 'text-foreground'}`}>
                   {item.label}
                 </span>
               </span>

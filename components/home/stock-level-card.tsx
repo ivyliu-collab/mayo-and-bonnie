@@ -17,16 +17,16 @@ const categoryIcons = {
   其他: Package,
 }
 
-function CategoryRow({ category }: { category: StockCategory }) {
+function CategoryRow({ category, accent }: { category: StockCategory; accent: 'lavender' | 'slate-blue' }) {
   const Icon = categoryIcons[category.name as keyof typeof categoryIcons] ?? Package
 
   return (
     <button
       type="button"
-      className="group flex w-full items-center justify-between gap-3 rounded-[18px] bg-background/55 px-3 py-2.5 text-left transition-colors hover:bg-sage/10"
+      className={`group flex w-full items-center justify-between gap-3 rounded-[18px] bg-background/55 px-3 py-2.5 text-left transition-colors ${accent === 'lavender' ? 'hover:bg-lavender/10' : 'hover:bg-slate-blue/10'}`}
     >
       <span className="flex min-w-0 items-center gap-2.5">
-        <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-sage/15 text-sage-foreground">
+        <span className={`flex size-8 shrink-0 items-center justify-center rounded-xl ${accent === 'lavender' ? 'bg-lavender/18 text-lavender-foreground' : 'bg-slate-blue/18 text-slate-blue-foreground'}`}>
           <Icon className="size-4" strokeWidth={1.7} />
         </span>
         <span className="truncate text-sm font-medium text-foreground">
@@ -72,6 +72,7 @@ export function StockLevelCard() {
         {stockSections.map((section) => (
           <div key={section.key}>
             <div className="mb-2 flex items-center gap-2 px-1">
+              <span className={`size-2 rounded-full ${section.key === 'cat' ? 'bg-lavender' : 'bg-slate-blue'}`} />
               <span className="text-sm font-medium text-foreground">
                 {section.name}
               </span>
@@ -81,7 +82,7 @@ export function StockLevelCard() {
             </div>
             <div className="flex flex-col gap-1.5">
               {section.categories.map((category) => (
-                <CategoryRow key={category.name} category={category} />
+                <CategoryRow key={category.name} category={category} accent={section.key === 'cat' ? 'lavender' : 'slate-blue'} />
               ))}
             </div>
           </div>
