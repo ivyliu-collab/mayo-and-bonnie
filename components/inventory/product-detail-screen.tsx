@@ -16,8 +16,8 @@ type DetailProduct = (typeof inventoryProducts)[number] & {
 }
 
 const details: Record<string, DetailProduct> = {
-  'wet-food': { ...inventoryProducts[1], brand: 'Ziwi', specification: '85g × 24罐', history: ['今天 · 消耗 −1', '9/12 · 入库 +12', '9/05 · 调整 20 → 18'], expiryRows: [{ date: '2026/10/03', quantity: 5, tone: 'urgent' }, { date: '2026/12/18', quantity: 8, tone: 'attention' }, { date: '2027/06/20', quantity: 17, tone: 'safe' }] },
-  'cat-food': { ...inventoryProducts[0], name: 'Ziwi Peak Air-Dried', brand: 'Ziwi Peak', specification: '1kg · 风干猫粮', quantity: 3, unit: '包', statusLabel: '3包 · 1已开', openedDate: '2026/09/01', expectedDays: 30, remaining: 58, history: ['9/15 · 开袋', '9/01 · 入库 +2'], expiryRows: [{ date: '2026/12/18', quantity: 1, tone: 'attention' }, { date: '2027/04/16', quantity: 2, tone: 'safe' }] },
+  'wet-food': { ...inventoryProducts[1], brand: 'Ziwi', specification: '85g × 24罐', history: ['2026/09/16 · 消耗 −1', '2026/09/12 · 入库 +12', '2026/09/05 · 调整 20 → 18'], expiryRows: [{ date: '2026/10/03', quantity: 5, tone: 'urgent' }, { date: '2026/12/18', quantity: 8, tone: 'attention' }, { date: '2027/06/20', quantity: 17, tone: 'safe' }] },
+  'cat-food': { ...inventoryProducts[0], name: 'Ziwi Peak Air-Dried', brand: 'Ziwi Peak', specification: '1kg · 风干猫粮', quantity: 3, unit: '包', statusLabel: '3包 · 1已开', openedDate: '2026/09/01', expectedDays: 30, remaining: 58, history: ['2026/09/15 · 开袋', '2026/09/01 · 入库 +2'], expiryRows: [{ date: '2026/12/18', quantity: 1, tone: 'attention' }, { date: '2027/04/16', quantity: 2, tone: 'safe' }] },
 }
 
 const toneClasses = { urgent: 'bg-expired/12 text-expired', attention: 'bg-attention/15 text-attention-foreground', safe: 'bg-safe/15 text-safe-foreground' }
@@ -34,7 +34,7 @@ export function ProductDetailScreen({ id }: { id: string }) {
     if (!isProgress || currentQuantity <= 0) return
     setCurrentQuantity((quantity) => quantity - 1)
     setExpiryRows((rows) => rows.map((row) => row.date === '2026/12/18' ? { ...row, quantity: Math.max(0, row.quantity - 1) } : row))
-    setHistory((items) => ['今天 · 消耗 −1 · 2026/12/18', ...items])
+    setHistory((items) => ['2026/09/16 · 消耗 −1 · 2026/12/18', ...items])
     setOpenedActive(false)
   }
 
