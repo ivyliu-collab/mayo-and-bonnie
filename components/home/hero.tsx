@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { Settings, PawPrint } from 'lucide-react'
 import { household } from '@/lib/mock-data'
 
@@ -42,13 +43,13 @@ export function Hero() {
             <PawPrint className="size-3.5" strokeWidth={2} />
             {household.petCount} 只毛孩
           </span>
-          <button
-            type="button"
+          <Link
+            href="/settings"
             aria-label="设置"
             className="flex size-9 items-center justify-center rounded-full bg-[oklch(1_0_0/0.16)] text-[oklch(0.98_0.008_88)] backdrop-blur-sm transition-colors hover:bg-[oklch(1_0_0/0.28)]"
           >
             <Settings className="size-4.5" strokeWidth={1.75} />
-          </button>
+          </Link>
         </div>
 
         <div className="text-[oklch(0.98_0.008_88)]">

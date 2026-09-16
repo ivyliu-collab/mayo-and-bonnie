@@ -39,13 +39,13 @@ export function TopBar() {
             <Plus className="size-4" strokeWidth={2} />
             入库
           </Link>
-          <button
-            type="button"
+          <Link
+            href="/settings"
             aria-label="设置"
             className="flex size-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary"
           >
             <Settings className="size-4.5" strokeWidth={1.75} />
-          </button>
+          </Link>
         </div>
       </div>
     </header>
